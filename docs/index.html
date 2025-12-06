@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英語学習ブラウザ - Eigo Browser</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.8;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .hero {
+      background: white;
+      border-radius: 20px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      margin-bottom: 30px;
+    }
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 27px;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .subtitle {
+      font-size: 1.2em;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: grid;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .feature {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: left;
+    }
+    .feature h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #667eea;
+    }
+    .links {
+      margin-top: 40px;
+    }
+    .links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .links a:hover {
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      color: white;
+      padding: 20px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="app-icon">📚</div>
+      <h1>英語学習ブラウザ</h1>
+      <p class="subtitle">Webを読みながら、自然に英語を学ぶ</p>
+      
+      <div class="features">
+        <div class="feature">
+          <h3>📖 タップで即座に翻訳</h3>
+          <p>わからない単語やフレーズをタップするだけで、すぐに意味を確認できます。読書の流れを止めません。</p>
+        </div>
+        <div class="feature">
+          <h3>🤖 AIが文法を解説</h3>
+          <p>単なる翻訳ではなく、なぜその意味になるのか、文法的なポイントをAIがわかりやすく解説します。</p>
+        </div>
+        <div class="feature">
+          <h3>💬 質問できるチャット機能</h3>
+          <p>解説を読んでもわからない部分があれば、その場で追加の質問ができます。</p>
+        </div>
+        <div class="feature">
+          <h3>🌐 普通のブラウザとしても使える</h3>
+          <p>タブ管理、ブックマーク、履歴など、通常のブラウザ機能も備えています。</p>
+        </div>
+      </div>
+
+      <div class="links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="https://github.com/yamatohagi/eigo-mababeru-burauza">GitHub</a>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2024 Eigo Browser</p>
+  </footer>
+</body>
+</html>
