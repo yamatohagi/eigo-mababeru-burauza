@@ -64,7 +64,7 @@ class BrowserTab: Identifiable, ObservableObject {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // 🔧 初期化
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  init(url: String = "https://www.reddit.com/") {
+  init(url: String = "https://www.google.com/") {
     self.url = url
 
     // 🌐 WKWebViewの設定
@@ -317,7 +317,7 @@ class TabManager: ObservableObject {
       } else if !tab.url.isEmpty {
         return tab.url
       } else {
-        return "https://www.reddit.com/"
+        return "https://www.google.com/"
       }
     }
     UserDefaults.standard.set(urls, forKey: Self.savedTabsKey)
@@ -357,7 +357,7 @@ class TabManager: ObservableObject {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ➕ 新しいタブを追加
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  func addTab(url: String = "https://bbc.com") {
+  func addTab(url: String = "https://www.google.com/") {
     let newTab = BrowserTab(url: url)
     tabs.append(newTab)
     activeTabId = newTab.id
