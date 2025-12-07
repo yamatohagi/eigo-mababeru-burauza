@@ -243,7 +243,7 @@ struct TabCardView: View {
           // 📐 水平方向の移動が垂直より大幅に大きい場合のみ反応
           let horizontalAmount = abs(value.translation.width)
           let verticalAmount = abs(value.translation.height)
-          
+
           // 水平スワイプが明らかな場合のみ（水平が垂直の3倍以上 & 左方向）
           if horizontalAmount > verticalAmount * 3 && value.translation.width < -20 {
             swipeOffset = value.translation.width
@@ -265,9 +265,10 @@ struct TabCardView: View {
           }
         }
     )
-    .simultaneousGesture(TapGesture().onEnded {
-      // 👆 タップでタブを切り替えて閉じる
-      onTap()
-    })
+    .simultaneousGesture(
+      TapGesture().onEnded {
+        // 👆 タップでタブを切り替えて閉じる
+        onTap()
+      })
   }
 }

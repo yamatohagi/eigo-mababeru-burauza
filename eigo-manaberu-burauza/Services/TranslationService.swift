@@ -30,7 +30,8 @@ actor TranslationService {
   // 🚀 本番用: Cloudflare Workers URL
   // ローカル開発用: MacのIPアドレス
   #if DEBUG
-    private let apiBaseURL = "http://192.168.151.29:8787"
+    //private let apiBaseURL = "http://192.168.151.29:8787"
+    private let apiBaseURL = "https://eigo-browser-api.la-luce-ymt0326.workers.dev"
   #else
     private let apiBaseURL = "https://eigo-browser-api.la-luce-ymt0326.workers.dev"
   #endif  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
