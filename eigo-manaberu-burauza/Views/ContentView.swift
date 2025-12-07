@@ -226,11 +226,11 @@ struct DraggableTranslationButton: View {
     }
   }
 
-  // 📍 初期位置（画面下部中央、BottomBarの少し上）
+  // 📍 初期位置（画面右端の縦方向中央）
   private func initialPosition(in geometry: GeometryProxy) -> CGPoint {
     CGPoint(
-      x: geometry.size.width / 2,
-      y: geometry.size.height - 160  // BottomBarの上あたり
+      x: geometry.size.width - 50,  // 右端から50pt内側
+      y: geometry.size.height / 2  // 縦方向の中央
     )
   }
 
