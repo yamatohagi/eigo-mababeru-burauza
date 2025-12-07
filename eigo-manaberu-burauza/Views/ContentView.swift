@@ -163,6 +163,15 @@ struct ContentView: View {
     .onChange(of: tabManager.activeTabId) { _, _ in
       translationVM.resetTranslationState()
     }
+    // 🔗 共有URLを受け取ったら新しいタブで開く
+    .onReceive(SharedURLManager.shared.$pendingURL) { url in
+      if let url = url {
+        // 新しいタブでURLを開く
+        tabManager.addTab(url: url.absoluteString)
+        // 処理完了後にリセット
+        SharedURLManager.shared.pendingURL = nil
+      }
+    }
   }
 }
 

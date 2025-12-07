@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C322A76C2EDFF7B500A6798C /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = C322A76B2EDFF7B500A6798C /* Inject */; };
+		C3A0E3482EE5530E00A4445D /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A0E3472EE5530E00A4445D /* UniformTypeIdentifiers.framework */; };
+		C3A0E3542EE5530E00A4445D /* OpenInEigo.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C3A0E3462EE5530E00A4445D /* OpenInEigo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +27,60 @@
 			remoteGlobalIDString = C322A6AB2EDEA5A400A6798C;
 			remoteInfo = "eigo-manaberu-burauza";
 		};
+		C3A0E3522EE5530E00A4445D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C322A6A42EDEA5A400A6798C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3A0E3452EE5530E00A4445D;
+			remoteInfo = OpenInEigo;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C3A0E3042EE54E4C00A4445D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C3A0E3542EE5530E00A4445D /* OpenInEigo.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C322A6AC2EDEA5A400A6798C /* eigo-manaberu-burauza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eigo-manaberu-burauza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C322A6B92EDEA5A500A6798C /* eigo-manaberu-burauzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eigo-manaberu-burauzaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C322A6C32EDEA5A500A6798C /* eigo-manaberu-burauzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eigo-manaberu-burauzaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3A0E3462EE5530E00A4445D /* OpenInEigo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenInEigo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3A0E3472EE5530E00A4445D /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C3A0E2F02EE53A9D00A4445D /* Exceptions for "eigo-manaberu-burauza" folder in "eigo-manaberu-burauza" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C322A6AB2EDEA5A400A6798C /* eigo-manaberu-burauza */;
+		};
+		C3A0E3582EE5530E00A4445D /* Exceptions for "OpenInEigo" folder in "OpenInEigo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C3A0E3452EE5530E00A4445D /* OpenInEigo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C322A6AE2EDEA5A400A6798C /* eigo-manaberu-burauza */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C3A0E2F02EE53A9D00A4445D /* Exceptions for "eigo-manaberu-burauza" folder in "eigo-manaberu-burauza" target */,
+			);
 			path = "eigo-manaberu-burauza";
 			sourceTree = "<group>";
 		};
@@ -47,6 +92,19 @@
 		C322A6C62EDEA5A600A6798C /* eigo-manaberu-burauzaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "eigo-manaberu-burauzaUITests";
+			sourceTree = "<group>";
+		};
+		C3A0E2F62EE54E4C00A4445D /* ShareToEigo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ShareToEigo;
+			sourceTree = "<group>";
+		};
+		C3A0E3492EE5530E00A4445D /* OpenInEigo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C3A0E3582EE5530E00A4445D /* Exceptions for "OpenInEigo" folder in "OpenInEigo" target */,
+			);
+			path = OpenInEigo;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -74,6 +132,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3A0E3432EE5530E00A4445D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3A0E3482EE5530E00A4445D /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +149,8 @@
 				C322A6AE2EDEA5A400A6798C /* eigo-manaberu-burauza */,
 				C322A6BC2EDEA5A500A6798C /* eigo-manaberu-burauzaTests */,
 				C322A6C62EDEA5A600A6798C /* eigo-manaberu-burauzaUITests */,
+				C3A0E2F62EE54E4C00A4445D /* ShareToEigo */,
+				C3A0E3492EE5530E00A4445D /* OpenInEigo */,
 				C322A76A2EDFF7B500A6798C /* Frameworks */,
 				C322A6AD2EDEA5A400A6798C /* Products */,
 			);
@@ -94,6 +162,7 @@
 				C322A6AC2EDEA5A400A6798C /* eigo-manaberu-burauza.app */,
 				C322A6B92EDEA5A500A6798C /* eigo-manaberu-burauzaTests.xctest */,
 				C322A6C32EDEA5A500A6798C /* eigo-manaberu-burauzaUITests.xctest */,
+				C3A0E3462EE5530E00A4445D /* OpenInEigo.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +170,7 @@
 		C322A76A2EDFF7B500A6798C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3A0E3472EE5530E00A4445D /* UniformTypeIdentifiers.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,10 +185,12 @@
 				C322A6A82EDEA5A400A6798C /* Sources */,
 				C322A6A92EDEA5A400A6798C /* Frameworks */,
 				C322A6AA2EDEA5A400A6798C /* Resources */,
+				C3A0E3042EE54E4C00A4445D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C3A0E3532EE5530E00A4445D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C322A6AE2EDEA5A400A6798C /* eigo-manaberu-burauza */,
@@ -177,6 +249,28 @@
 			productReference = C322A6C32EDEA5A500A6798C /* eigo-manaberu-burauzaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C3A0E3452EE5530E00A4445D /* OpenInEigo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3A0E3572EE5530E00A4445D /* Build configuration list for PBXNativeTarget "OpenInEigo" */;
+			buildPhases = (
+				C3A0E3422EE5530E00A4445D /* Sources */,
+				C3A0E3432EE5530E00A4445D /* Frameworks */,
+				C3A0E3442EE5530E00A4445D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C3A0E3492EE5530E00A4445D /* OpenInEigo */,
+			);
+			name = OpenInEigo;
+			packageProductDependencies = (
+			);
+			productName = OpenInEigo;
+			productReference = C3A0E3462EE5530E00A4445D /* OpenInEigo.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +291,9 @@
 					C322A6C22EDEA5A500A6798C = {
 						CreatedOnToolsVersion = 26.1;
 						TestTargetID = C322A6AB2EDEA5A400A6798C;
+					};
+					C3A0E3452EE5530E00A4445D = {
+						CreatedOnToolsVersion = 26.1;
 					};
 				};
 			};
@@ -220,6 +317,7 @@
 				C322A6AB2EDEA5A400A6798C /* eigo-manaberu-burauza */,
 				C322A6B82EDEA5A500A6798C /* eigo-manaberu-burauzaTests */,
 				C322A6C22EDEA5A500A6798C /* eigo-manaberu-burauzaUITests */,
+				C3A0E3452EE5530E00A4445D /* OpenInEigo */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +338,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C322A6C12EDEA5A500A6798C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3A0E3442EE5530E00A4445D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,6 +375,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3A0E3422EE5530E00A4445D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -282,6 +394,11 @@
 			isa = PBXTargetDependency;
 			target = C322A6AB2EDEA5A400A6798C /* eigo-manaberu-burauza */;
 			targetProxy = C322A6C42EDEA5A600A6798C /* PBXContainerItemProxy */;
+		};
+		C3A0E3532EE5530E00A4445D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3A0E3452EE5530E00A4445D /* OpenInEigo */;
+			targetProxy = C3A0E3522EE5530E00A4445D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,12 +529,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "eigo-manaberu-burauza/eigo-manaberu-burauza.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MMHQKV6899;
 				EMIT_FRONTEND_COMMAND_LINES = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "eigo-manaberu-burauza/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,12 +568,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "eigo-manaberu-burauza/eigo-manaberu-burauza.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MMHQKV6899;
 				EMIT_FRONTEND_COMMAND_LINES = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "eigo-manaberu-burauza/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -561,6 +682,64 @@
 			};
 			name = Release;
 		};
+		C3A0E3552EE5530E00A4445D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OpenInEigo/OpenInEigo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MMHQKV6899;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenInEigo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "英語ブラウザで開く";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noboru-yama.eigo-manaberu-burauza.OpenInEigo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3A0E3562EE5530E00A4445D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OpenInEigo/OpenInEigo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MMHQKV6899;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenInEigo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "英語ブラウザで開く";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "noboru-yama.eigo-manaberu-burauza.OpenInEigo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -596,6 +775,15 @@
 			buildConfigurations = (
 				C322A6D42EDEA5A600A6798C /* Debug */,
 				C322A6D52EDEA5A600A6798C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3A0E3572EE5530E00A4445D /* Build configuration list for PBXNativeTarget "OpenInEigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3A0E3552EE5530E00A4445D /* Debug */,
+				C3A0E3562EE5530E00A4445D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
