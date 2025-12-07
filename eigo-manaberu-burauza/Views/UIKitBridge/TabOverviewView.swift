@@ -41,39 +41,36 @@ struct TabOverviewView: View {
       )
       .ignoresSafeArea()
 
-      VStack(spacing: 0) {
-        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        // 📜 スクロール可能なタブ一覧
-        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        ScrollView {
-          LazyVGrid(columns: columns, spacing: 14) {
-            // 📑 各タブをカードとして表示
-            ForEach(tabManager.tabs) { tab in
-              TabCardView(
-                tab: tab,
-                isActive: tab.id == tabManager.activeTabId,
-                onTap: {
-                  // 🎯 タップでタブを選択して閉じる
-                  tabManager.switchToTab(tab)
-                  withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
-                    tabManager.showTabOverview = false
-                  }
-                },
-                onClose: {
-                  // ❌ タブを閉じる
-                  withAnimation(.easeInOut(duration: 0.25)) {
-                    tabManager.closeTab(tab)
-                  }
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // 📜 スクロール可能なタブ一覧
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // 🔧 VStackを削除してScrollViewを直接配置（Spacerがスクロールを妨げていた）
+      ScrollView(.vertical, showsIndicators: true) {
+        LazyVGrid(columns: columns, spacing: 14) {
+          // 📑 各タブをカードとして表示
+          ForEach(tabManager.tabs) { tab in
+            TabCardView(
+              tab: tab,
+              isActive: tab.id == tabManager.activeTabId,
+              onTap: {
+                // 🎯 タップでタブを選択して閉じる
+                tabManager.switchToTab(tab)
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                  tabManager.showTabOverview = false
                 }
-              )
-            }
+              },
+              onClose: {
+                // ❌ タブを閉じる
+                withAnimation(.easeInOut(duration: 0.25)) {
+                  tabManager.closeTab(tab)
+                }
+              }
+            )
           }
-          .padding(.horizontal, 14)
-          .padding(.top, 16)
-          .padding(.bottom, 100)  // 下部ツールバーの余白
         }
-
-        Spacer()
+        .padding(.horizontal, 14)
+        .padding(.top, 16)
+        .padding(.bottom, 100)  // 下部ツールバーの余白
       }
 
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -151,11 +148,11 @@ struct TabOverviewView: View {
 
 /// ========================================
 /// 🧩 View名: TabCardView
-/// 📌 目的: iOS 26風のリッチなタブカード
+/// 📌 目的: iOS 26風のリッチなタブカード（パフォーマンス最適化版）
 /// ========================================
 struct TabCardView: View {
-  // 📑 表示するタブ
-  @ObservedObject var tab: BrowserTab
+  // 📑 表示するタブ（letに変更して不要な監視を防ぐ）
+  let tab: BrowserTab
   // 🎯 アクティブかどうか
   let isActive: Bool
   // 👆 タップ時のアクション
@@ -165,8 +162,6 @@ struct TabCardView: View {
 
   // 👈 スワイプ用のオフセット
   @State private var swipeOffset: CGFloat = 0
-  // 🎯 プレス状態
-  @State private var isPressed: Bool = false
 
   var body: some View {
     VStack(spacing: 0) {
@@ -174,9 +169,9 @@ struct TabCardView: View {
       // 📸 タブのスクリーンショットプレビュー
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       ZStack {
-        // 🎨 カード背景（Glass効果）
+        // 🎨 カード背景（シンプルな背景色に変更 - ブラーは重い）
         RoundedRectangle(cornerRadius: 16)
-          .fill(.ultraThinMaterial)
+          .fill(Color(.secondarySystemBackground))
 
         // 📸 スクリーンショットがあれば表示
         if let screenshot = tab.screenshot {
@@ -186,29 +181,11 @@ struct TabCardView: View {
             .frame(maxWidth: .infinity)
             .clipped()
         } else {
-          // 🌐 スクリーンショットがない場合はプレースホルダー
+          // 🌐 スクリーンショットがない場合はプレースホルダー（シンプル版）
           VStack(spacing: 10) {
-            ZStack {
-              Circle()
-                .fill(
-                  LinearGradient(
-                    colors: [.blue.opacity(0.2), .purple.opacity(0.2)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                  )
-                )
-                .frame(width: 56, height: 56)
-
-              Image(systemName: "globe")
-                .font(.system(size: 28, weight: .medium))
-                .foregroundStyle(
-                  LinearGradient(
-                    colors: [.blue, .purple],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                  )
-                )
-            }
+            Image(systemName: "globe")
+              .font(.system(size: 32, weight: .medium))
+              .foregroundColor(.blue)
 
             Text(tab.displayHost)
               .font(.system(size: 12, weight: .medium))
@@ -258,21 +235,23 @@ struct TabCardView: View {
       .padding(.top, 10)
       .padding(.horizontal, 4)
     }
-    // 🎯 タップアニメーション
-    .scaleEffect(isPressed ? 0.96 : 1.0)
-    // 👈 左スワイプでタブを削除
+    // 👈 左スワイプでタブを削除（スクロールを優先）
     .offset(x: swipeOffset)
-    .gesture(
-      DragGesture()
+    .highPriorityGesture(
+      DragGesture(minimumDistance: 30)  // 🔧 最小距離を増やしてスクロールと確実に区別
         .onChanged { value in
-          // 左方向のみ許可
-          if value.translation.width < 0 {
+          // 📐 水平方向の移動が垂直より大幅に大きい場合のみ反応
+          let horizontalAmount = abs(value.translation.width)
+          let verticalAmount = abs(value.translation.height)
+          
+          // 水平スワイプが明らかな場合のみ（水平が垂直の3倍以上 & 左方向）
+          if horizontalAmount > verticalAmount * 3 && value.translation.width < -20 {
             swipeOffset = value.translation.width
           }
         }
         .onEnded { value in
           // 📏 一定以上スワイプしたら削除
-          if value.translation.width < -80 {
+          if swipeOffset < -80 {
             withAnimation(.easeInOut(duration: 0.2)) {
               swipeOffset = -500
             }
@@ -286,10 +265,9 @@ struct TabCardView: View {
           }
         }
     )
-    .contentShape(Rectangle())
-    .onTapGesture {
-      // 👆 即座にタブを切り替えて閉じる（遅延なし）
+    .simultaneousGesture(TapGesture().onEnded {
+      // 👆 タップでタブを切り替えて閉じる
       onTap()
-    }
+    })
   }
 }

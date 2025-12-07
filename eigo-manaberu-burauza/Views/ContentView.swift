@@ -166,6 +166,10 @@ struct ContentView: View {
     // 🔗 共有URLを受け取ったら新しいタブで開く
     .onReceive(SharedURLManager.shared.$pendingURL) { url in
       if let url = url {
+        // 📱 タブ一覧が開いていたら閉じる
+        if tabManager.showTabOverview {
+          tabManager.showTabOverview = false
+        }
         // 新しいタブでURLを開く
         tabManager.addTab(url: url.absoluteString)
         // 処理完了後にリセット
