@@ -89,7 +89,9 @@ struct eigo_manaberu_burauzaApp: App {
   private func checkForSharedURL() {
     // 📦 App Groupsの共有UserDefaults
     // ⚠️ App Groups設定後に "group.your.app.identifier" を実際のIDに変更
-    guard let userDefaults = UserDefaults(suiteName: "group.eigobrowser.shared") else { return }
+    guard let userDefaults = UserDefaults(suiteName: "group.com.hagiyamato.eigobrowser") else {
+      return
+    }
 
     // 🌐 共有されたURLを取得
     if let urlString = userDefaults.string(forKey: "SharedURL"),

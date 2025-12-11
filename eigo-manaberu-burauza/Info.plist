@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.eigobrowser.url</string>
+			<string>com.hagiyamato.eigobrowser</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>eigobrowser</string>

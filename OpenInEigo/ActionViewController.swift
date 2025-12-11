@@ -86,7 +86,7 @@ class ActionViewController: UIViewController {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   private func openInMainApp(_ url: URL) {
     // 📦 App Groupsに保存（バックアップ）
-    if let userDefaults = UserDefaults(suiteName: "group.eigobrowser.shared") {
+    if let userDefaults = UserDefaults(suiteName: "group.com.hagiyamato.eigobrowser") {
       userDefaults.set(url.absoluteString, forKey: "SharedURL")
       userDefaults.synchronize()
     }
